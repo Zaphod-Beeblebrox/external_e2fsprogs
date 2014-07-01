@@ -271,8 +271,9 @@ include $(CLEAR_VARS)
 LOCAL_SRC_FILES := $(badblocks_src_files)
 LOCAL_C_INCLUDES := $(badblocks_c_includes)
 LOCAL_CFLAGS := $(badblocks_cflags)
-LOCAL_SHARED_LIBRARIES := $(badblocks_shared_libraries)
-LOCAL_SYSTEM_SHARED_LIBRARIES := $(badblocks_system_shared_libraries)
+LOCAL_STATIC_LIBRARIES := \
+        $(badblocks_shared_libraries) \
+        $(badblocks_system_shared_libraries)
 LOCAL_MODULE := badblocks
 LOCAL_MODULE_TAGS := optional
 
@@ -340,8 +341,11 @@ include $(CLEAR_VARS)
 LOCAL_SRC_FILES := $(chattr_src_files)
 LOCAL_C_INCLUDES := $(chattr_c_includes)
 LOCAL_CFLAGS := $(chattr_cflags)
-LOCAL_SHARED_LIBRARIES := $(chattr_shared_libraries)
-LOCAL_SYSTEM_SHARED_LIBRARIES := $(chattr_system_shared_libraries)
+
+LOCAL_STATIC_LIBRARIES := \
+        $(chattr_shared_libraries) \
+        $(chattr_system_shared_libraries)
+
 LOCAL_MODULE := chattr
 LOCAL_MODULE_TAGS := optional
 
@@ -409,8 +413,11 @@ include $(CLEAR_VARS)
 LOCAL_SRC_FILES := $(lsattr_src_files)
 LOCAL_C_INCLUDES := $(lsattr_c_includes)
 LOCAL_CFLAGS := $(lsattr_cflags)
-LOCAL_SHARED_LIBRARIES := $(lsattr_shared_libraries)
-LOCAL_SYSTEM_SHARED_LIBRARIES := $(lsattr_system_shared_libraries)
+
+LOCAL_STATIC_LIBRARIES := \
+        $(lsattr_shared_libraries) \
+        $(lsattr_system_shared_libraries)
+
 LOCAL_MODULE := lsattr
 LOCAL_MODULE_TAGS := optional
 
@@ -471,6 +478,7 @@ blkid_shared_libraries := \
     libext2fs \
     libext2_blkid \
     libext2_com_err \
+    libext2_uuid \
     libext2_e2p
 
 blkid_system_shared_libraries := libc
@@ -480,9 +488,13 @@ include $(CLEAR_VARS)
 LOCAL_SRC_FILES := $(blkid_src_files)
 LOCAL_C_INCLUDES := $(blkid_c_includes)
 LOCAL_CFLAGS := $(blkid_cflags)
-LOCAL_SHARED_LIBRARIES := $(blkid_shared_libraries)
-LOCAL_SYSTEM_SHARED_LIBRARIES := $(blkid_system_shared_libraries)
+
+LOCAL_STATIC_LIBRARIES := \
+        $(blkid_shared_libraries) \
+        $(blkid_system_shared_libraries)
+
 LOCAL_MODULE := blkid
 LOCAL_MODULE_TAGS := optional
+LOCAL_FORCE_STATIC_EXECUTABLE := true
 
 include $(BUILD_EXECUTABLE)

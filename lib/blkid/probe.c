@@ -36,6 +36,8 @@
 #include "uuid/uuid.h"
 #include "probe.h"
 
+int uuid_is_null(const uuid_t uu);
+
 extern int probe_exfat(struct blkid_probe *probe,
 		      struct blkid_magic *id __BLKID_ATTR((unused)),
 		      unsigned char *buf);
